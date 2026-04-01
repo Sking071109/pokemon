@@ -162,51 +162,10 @@
             <input type="text" id="inputFrase" placeholder="Ej: ¡Nunca me rendiré!" />
           </div>
 
-          <!-- ───────── POKÉMON INSIGNIA ───────── -->
-
-          <h3 class="form-subtitle">Pokémon Insignia</h3>
-
-          <!-- Nombre Pokemon -->
-          <div class="field-group">
-            <label for="inputPokemon2">Nombre del Pokémon</label>
-            <input type="text" id="inputPokemon2" placeholder="Ej: Charizard..." />
-          </div>
-
-          <!-- Tipo Pokemon -->
-          <div class="field-group">
-            <label for="inputTipo2">Tipo principal</label>
-            <select id="inputTipo2">
-              <option value="">Seleccionar</option>
-              <option value="Fuego">Fuego</option>
-              <option value="Agua">Agua</option>
-              <option value="Planta">Planta</option>
-              <option value="Eléctrico">Eléctrico</option>
-              <option value="Psíquico">Psíquico</option>
-              <option value="Sombra">Sombra</option>
-            </select>
-          </div>
-
-          <!-- Nivel -->
-          <div class="field-group">
-            <label for="inputNivel">Nivel</label>
-            <input type="number" id="inputNivel" min="1" max="100" />
-          </div>
-
-          <!-- Movimiento -->
-          <div class="field-group">
-            <label for="inputMovimiento">Movimiento especial</label>
-            <input type="text" id="inputMovimiento" />
-          </div>
-
-          <!-- Frase -->
-          <div class="field-group">
-            <label for="inputFrasePokemon">Frase de combate</label>
-            <input type="text" id="inputFrasePokemon" />
-          </div>
-
           <!-- Mensajes de feedback -->
           <div id="mensajeError" class="msg msg-error" style="display:none;"></div>
           <div id="mensajeExito" class="msg msg-exito" style="display:none;"></div>
+
 
           <button type="submit" class="btn-submit">
             <img src="images/pokeball.webp" alt="Pokeball" class="btn-icon"> Generar TrainerCard
@@ -220,6 +179,7 @@
     <!-- ── TARJETA DE RESULTADO ── -->
     <section class="card-section" id="cardSection" style="display:none;">
 
+      <!-- TrainerCard del entrenador -->
       <div class="trainer-card" id="trainerCard">
 
         <div class="card-hero" style="background-image: url('images/entrenadores.webp');"></div>
@@ -251,20 +211,57 @@
           <span class="card-logo">⬟ PokéDev</span>
         </div>
 
-        <!-- ── POKECARD ── -->
-        <div class="trainer-card" id="pokeCard">
-        
-          <div class="card-header">
-            <div class="card-avatar" id="pokeNombre"></div>
+      </div>
+
+      <!-- BONUS — ¿Cuál es tu equipo de combate? -->
+      <div class="equipo-bloque">
+
+        <div class="equipo-bloque-header">
+          <p class="equipo-bloque-titulo">¿Cuál es tu equipo de combate?</p>
+          <p class="equipo-bloque-sub">Agrega hasta 5 Pokémon — uno por uno.</p>
+        </div>
+
+        <!-- Formulario para agregar un Pokémon al equipo -->
+        <div class="equipo-form">
+          <div class="equipo-form-fila">
+            <div class="field-group">
+              <label for="equipoNombre">Nombre</label>
+              <input type="text" id="equipoNombre" placeholder="Ej: Pikachu" />
+            </div>
+            <div class="field-group">
+              <label for="equipoTipo">Tipo</label>
+              <select id="equipoTipo" class="native-select">
+                <option value="">— Tipo —</option>
+                <option value="Fuego">Fuego</option>
+                <option value="Agua">Agua</option>
+                <option value="Planta">Planta</option>
+                <option value="Eléctrico">Eléctrico</option>
+                <option value="Psíquico">Psíquico</option>
+                <option value="Sombra">Sombra</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="equipoNivel">Nivel</label>
+              <input type="number" id="equipoNivel" placeholder="1–100" min="1" max="100" class="native-number" />
+            </div>
+            <div class="field-group campo-movimiento">
+              <label for="equipoMovimiento">Movimiento especial</label>
+              <input type="text" id="equipoMovimiento" placeholder="Ej: Rayo" />
+            </div>
           </div>
-        
-          <div class="card-body">
-            <div id="pokeTipo"></div>
-            <div id="pokeNivel"></div>
-            <div id="pokeMovimiento"></div>
-            <div id="pokeFrase"></div>
-          </div>
-        
+          <div id="mensajeEquipo" class="msg msg-error" style="display:none;"></div>
+          <button id="btnAgregarPokemon" class="btn-equipo-agregar">
+            <img src="images/pokeball.webp" alt="" class="btn-icon"> Agregar al equipo
+          </button>
+        </div>
+
+        <!-- 5 slots del equipo (se llenan con forEach cuando el usuario agrega) -->
+        <div class="equipo-slots" id="equipoSlots">
+          <div class="equipo-slot vacio" id="slot-0"><span class="slot-num">1</span><span class="slot-texto">Vacío</span></div>
+          <div class="equipo-slot vacio" id="slot-1"><span class="slot-num">2</span><span class="slot-texto">Vacío</span></div>
+          <div class="equipo-slot vacio" id="slot-2"><span class="slot-num">3</span><span class="slot-texto">Vacío</span></div>
+          <div class="equipo-slot vacio" id="slot-3"><span class="slot-num">4</span><span class="slot-texto">Vacío</span></div>
+          <div class="equipo-slot vacio" id="slot-4"><span class="slot-num">5</span><span class="slot-texto">Vacío</span></div>
         </div>
 
       </div>
